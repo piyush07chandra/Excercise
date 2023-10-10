@@ -1,16 +1,10 @@
-import { useEffect,useState,useRef } from "react";
+import { useState,useRef } from "react";
 import App from "./App";
 
-const images=[
-    "/images/image1.jpg",
-    "/images/image2.jpg",
-    "/images/image3.jpg",
-    "/images/image4.jpg",
-    "/images/image5.jpg"
-]
+
 
 const Part=(()=>{
-    const [currentIndex, setCurrentIndex] = useState(0);
+    
     const [part, setPart] = useState(["chest"]); // initilaze default valu from api
     const targetRef=useRef(null);
 
@@ -19,20 +13,10 @@ const Part=(()=>{
         targetRef.current.scrollIntoView({ behavior: 'smooth' });
       }
 
-
-    useEffect(()=>{
-        const interval=setInterval(()=>{
-            setCurrentIndex((prevIndex)=> (prevIndex + 1) % images.length)
-        },1000);
-
-        return () => clearInterval(interval);
-
-    },[])
-
     
     return(
         <>
-           <div className="relative h-screen flex items-center justify-center text-center bg-center bg-cover transition-opacity  duration-1000" style={{ backgroundImage: `url(${images[currentIndex]})` }}>
+           <div className="relative h-screen flex items-center justify-center text-center bg-center bg-cover transition-opacity  duration-1000" style={{ backgroundImage: `url("/images/image1.jpg")` }}>
       
             <div className="relative ">
                 <h1 className=" text-5xl font-bold text-white animate-bounce">Workout Warriors Welcome</h1>
